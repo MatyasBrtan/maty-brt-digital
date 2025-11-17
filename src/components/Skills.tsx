@@ -1,27 +1,30 @@
 import { Code2, Globe, TrendingUp, Database } from "lucide-react";
 import { Card } from "./ui/card";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Skills = () => {
+  const { t } = useLanguage();
+  
   const skills = [
     {
       icon: Code2,
-      title: "Programování",
-      description: "Java, webové technologie, systematický přístup k vývoji softwaru",
+      title: t.skills.programming.title,
+      description: t.skills.programming.description,
     },
     {
       icon: Globe,
-      title: "Webové prezentace",
-      description: "Tvorba moderních webových řešení pro malé podniky a podnikatele",
+      title: t.skills.web.title,
+      description: t.skills.web.description,
     },
     {
       icon: TrendingUp,
-      title: "Investování",
-      description: "Zájem o finanční trhy, investiční strategie a dlouhodobé plánování",
+      title: t.skills.investing.title,
+      description: t.skills.investing.description,
     },
     {
       icon: Database,
-      title: "Digitalizace",
-      description: "Systematická práce s informacemi a digitalizace procesů",
+      title: t.skills.digitalization.title,
+      description: t.skills.digitalization.description,
     },
   ];
 
@@ -31,11 +34,11 @@ const Skills = () => {
         <div className="max-w-4xl mx-auto space-y-12">
           <div className="space-y-4 text-center animate-fade-in-up">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
-              Dovednosti
+              {t.skills.title}
             </h2>
             <div className="w-20 h-1 bg-accent mx-auto"></div>
             <p className="text-lg text-muted-foreground">
-              Oblasti, kterým se věnuji a dále rozvíjím
+              {t.skills.subtitle}
             </p>
           </div>
 

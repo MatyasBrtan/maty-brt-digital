@@ -1,16 +1,18 @@
-import { Menu, X } from "lucide-react";
+import { Menu, X, Languages } from "lucide-react";
 import { useState } from "react";
 import { Button } from "./ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { language, setLanguage, t } = useLanguage();
 
   const navItems = [
-    { label: "Domů", href: "#home" },
-    { label: "O mně", href: "#about" },
-    { label: "Dovednosti", href: "#skills" },
-    { label: "Zkušenosti", href: "#experience" },
-    { label: "Kontakt", href: "#contact" },
+    { label: t.nav.home, href: "#home" },
+    { label: t.nav.about, href: "#about" },
+    { label: t.nav.skills, href: "#skills" },
+    { label: t.nav.experience, href: "#experience" },
+    { label: t.nav.contact, href: "#contact" },
   ];
 
   const scrollToSection = (href: string) => {
@@ -51,6 +53,15 @@ const Navigation = () => {
                 {item.label}
               </a>
             ))}
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setLanguage(language === "cs" ? "en" : "cs")}
+              className="gap-2"
+            >
+              <Languages className="h-4 w-4" />
+              {language === "cs" ? "EN" : "CS"}
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -81,6 +92,15 @@ const Navigation = () => {
                   {item.label}
                 </a>
               ))}
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setLanguage(language === "cs" ? "en" : "cs")}
+                className="gap-2 justify-start"
+              >
+                <Languages className="h-4 w-4" />
+                {language === "cs" ? "English" : "Čeština"}
+              </Button>
             </div>
           </div>
         )}

@@ -1,18 +1,21 @@
 import { Mail, Linkedin, Github } from "lucide-react";
 import { Button } from "./ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Contact = () => {
+  const { t } = useLanguage();
+  
   return (
     <section id="contact" className="section-spacing bg-gradient-to-br from-primary to-[hsl(var(--hero-gradient-end))] text-primary-foreground">
       <div className="container-custom">
         <div className="max-w-3xl mx-auto text-center space-y-8 animate-fade-in-up">
           <div className="space-y-4">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
-              Kontakt
+              {t.contact.title}
             </h2>
             <div className="w-20 h-1 bg-accent mx-auto"></div>
             <p className="text-lg text-primary-foreground/80">
-              Máte zájem o spolupráci nebo se chcete dozvědět více? Neváhejte mě kontaktovat.
+              {t.contact.description}
             </p>
           </div>
 
