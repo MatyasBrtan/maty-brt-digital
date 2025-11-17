@@ -1,32 +1,35 @@
 import { Briefcase, GraduationCap } from "lucide-react";
 import { Card } from "./ui/card";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Experience = () => {
+  const { t } = useLanguage();
+  
   const experiences = [
     {
       type: "education",
-      title: "Gymnázium Arabská",
-      subtitle: "Studium programování",
-      period: "Současnost",
-      description: "Zaměření na praktické využití technologií a systematickou práci s informacemi",
+      title: t.experience.school.title,
+      subtitle: t.experience.school.subtitle,
+      period: t.experience.school.period,
+      description: t.experience.school.description,
     },
     {
       type: "work",
-      title: "Freya",
-      subtitle: "Administrativa",
-      description: "Práce s administrativními procesy a organizací",
+      title: t.experience.freya.title,
+      subtitle: t.experience.freya.subtitle,
+      description: t.experience.freya.description,
     },
     {
       type: "work",
-      title: "Albi, PVA Letňany",
-      subtitle: "Veletrhy",
-      description: "Logistika a příprava firemních prezentací na veletrzích",
+      title: t.experience.albi.title,
+      subtitle: t.experience.albi.subtitle,
+      description: t.experience.albi.description,
     },
     {
       type: "work",
-      title: "Burger Bar",
-      subtitle: "Zákaznický servis",
-      description: "Práce v zákaznickém prostředí, komunikace a týmová spolupráce",
+      title: t.experience.burger.title,
+      subtitle: t.experience.burger.subtitle,
+      description: t.experience.burger.description,
     },
   ];
 
@@ -36,11 +39,11 @@ const Experience = () => {
         <div className="max-w-4xl mx-auto space-y-12">
           <div className="space-y-4 text-center animate-fade-in-up">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
-              Zkušenosti
+              {t.experience.title}
             </h2>
             <div className="w-20 h-1 bg-accent mx-auto"></div>
             <p className="text-lg text-muted-foreground">
-              Vzdělání a pracovní zkušenosti
+              {t.experience.subtitle}
             </p>
           </div>
 
